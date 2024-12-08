@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alsaidi Payment Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+        }
+        header {
+            background: #005f3d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header img {
+            max-width: 150px;
+            margin-bottom: 15px;
+        }
+        .hero {
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://example.com/path-to-your-pod-system-image.jpg') no-repeat center center;
+            background-size: cover;
+            filter: blur(10px);
+            z-index: 1;
+        }
+        .bubble {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(0, 95, 61, 0.7);
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .bubble-inner {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            color: #005f3d;
+            display: inline-block;
+            margin: 0;
+        }
+        .slogan {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0;
+        }
+        .sub-slogan {
+            font-size: 20px;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .description {
+            font-size: 20px;
+            margin: 10px 0 30px;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .contact-form {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .bubble-background {
+            position: absolute;
+            top: 50px; /* Adjusted for proper placement */
+            left: 50%;
+            width: 90%; /* Wider bubble */
+            max-width: 500px; /* Limit max width */
+            background: #28a745; /* Opaque green bubble */
+            border-radius: 20px; /* Rounded corners */
+            transform: translate(-50%, 0); /* Center the bubble */
+            padding: 20px; /* Padding for bubble effect */
+            z-index: -1; /* Behind the form */
+        }
+        .contact-form h3 {
+            margin-bottom: 20px;
+            position: relative; /* Ensure stacking context */
+            z-index: 1; /* Bring title above the bubble */
+        }
+        .contact-form input, .contact-form textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .confirmation-message {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+        }
+        .benefits {
+            margin-top: 40px;
+            padding: 30px;
+            background: #e9f5e9;
+            border-radius: 20px;
+        }
+        .benefits h3 {
+            margin-bottom: 15px;
+        }
+        .contact-info {
+            margin-top: 40px;
+            font-size: 18px;
+            text-align: center;
+            padding: 25px;
+            background: #f9f9f9;
+            border-radius: 20px;
+        }
+        footer {
+            background: #005f3d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="https://i.imghippo.com/files/Hsd7232aM.jpeg" alt="Alsaidi Payment Solutions Logo" />
+</header>
+
+<div class="hero">
+    <div class="bubble">
+        <div class="bubble-inner">
+            <h1 class="slogan">Secure. Fast. Digital Payments for Every Store.</h1>
+            <h2 class="sub-slogan">Empowering your business with seamless solutions.</h2>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <p class="description">We empower businesses by implementing digital payment solutions tailored to their needs.</p>
+    <button class="button" onclick="showContactForm()">Request a Consultation</button>
+</div>
+
+<div class="contact-form" id="contactForm">
+    <div class="bubble-background"></div> <!-- Green bubble -->
+    <span class="close" onclick="hideContactForm()" style="cursor:pointer; align-self: flex-end;">&times;</span>
+    <h3>Contact Us</h3>
+    <p>We will contact you as soon as possible!</p>
+    <form id="consultationForm" onsubmit="return validateForm()">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="text" name="business_address" placeholder="Your Business Address" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Your Phone Number" pattern="[0-9]{10,15}" title="Please enter a valid phone number (10 to 15 digits)" required>
+        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+    <div class="confirmation-message" id="confirmationMessage">
+        Thank you! Your message has been sent successfully.
+    </div>
+</div>
+
+<div class="container benefits">
+    <h3>Why Implementing Digital Payments Can Boost Your Revenue</h3>
+    <p>Digital payment solutions not only streamline your transactions but also enhance customer satisfaction. Here’s how:</p>
+    <ul>
+        <li><strong>Increased Efficiency:</strong> Speed up transaction times, reducing wait times for customers.</li>
+        <li><strong>Broader Customer Base:</strong> Accept various payment methods, attracting more customers.</li>
+        <li><strong>Enhanced Security:</strong> Protect customer data and build trust with secure payment options.</li>
+        <li><strong>Better Tracking:</strong> Easily track sales and customer behavior for informed business decisions.</li>
+        <li><strong>24/7 Availability:</strong> Facilitate online payments, increasing sales opportunities outside of business hours.</li>
+    </ul>
+</div>
+
+<div class="contact-info">
+    <h3>Contact Us</h3>
+    <p>Email: <a href="mailto:alsaidi.payment.solutions@gmail.com">alsaidi.payment.solutions@gmail.com</a></p>
+    <p>Phone: <a href="tel:+13477995737">347-799-5737</a></p>
+    <p>Working Hours: Every Day, 2 PM - 12 AM</p>
+</div>
+
+<footer>
+    <p>&copy; 2024 Alsaidi Payment Solutions. All rights reserved.</p>
+</footer>
+
+<script>
+    function showContactForm() {
+        document.getElementById('contactForm').style.display = 'flex'; // Show form
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    function hideContactForm() {
+        document.getElementById('contactForm').style.display = 'none'; // Hide form
+        document.body.style.overflow = 'auto'; // Restore scrolling
+        document.getElementById('confirmationMessage').style.display = 'none'; // Reset confirmation message
+        document.getElementById('consultationForm').reset(); // Reset form fields
+    }
+
+    function validateForm() {
+        const form = document.getElementById('consultationForm');
+        const email = form.email.value;
+        const phone = form.phone.value;
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            alert("Please enter a valid email address.");
+            return false;
+        }
+
+        if (!/^\d{10,15}$/.test(phone)) {
+            alert("Please enter a valid phone number (10 to 15 digits).");
+            return false;
+        }
+
+        document.getElementById('confirmationMessage').style.display = 'block';
+        hideContactForm(); // Hide form after submission
+        return false; // Prevent default form submission
+    }
+</script>
+
+</body>
+</html>
